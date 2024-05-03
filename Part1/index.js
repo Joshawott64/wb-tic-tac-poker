@@ -22,13 +22,21 @@ const determineWinner = () => {
         if (squareAText !== '' && squareAText === squareBText && squareAText === squareCText) {
             return alert(`${squareAText} is the winner!`)
         } 
+        else if (fullBoard()) {
+            return alert("Cat!")
+        }
     }
 
     return undefined
 }
 
 const fullBoard = () => {
-    
+    for (const square of squares) {
+        if (square.innerText === '') {
+            return false
+        }
+    }
+    return true
 }
 
 const play = (evt) => {
